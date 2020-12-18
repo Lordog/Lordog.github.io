@@ -120,6 +120,21 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
@@ -173,10 +188,10 @@
       <div class="post-body">
           <div class="category-all-page">
             <div class="category-all-title">
-              暂无分类
+              目前共计 4 个分类
             </div>
             <div class="category-all">
-              
+              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%80%9D%E8%80%83/">思考</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%83%B3%E9%97%AE%E5%A4%A7%E5%AE%B6%E7%9A%84%E9%97%AE%E9%A2%98/">想问大家的问题</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%89%A9%E7%90%86/">物理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B6%B3%E7%90%83/">足球</a><span class="category-list-count">1</span></li></ul>
             </div>
           </div>
         
@@ -194,6 +209,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -245,20 +261,42 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lordog"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Lordog</p>
-  <div class="site-description" itemprop="description">养生选手，学到麻木</div>
+  <div class="site-description" itemprop="description">足球是真爱，学习不是</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Lordog" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Lordog" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuantongxin2002@qq.com" title="E-Mail → mailto:yuantongxin2002@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -340,6 +378,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'qUzJVAWBuXKvc4ofDgCEvyvN-gzGzoHsz',
+      appKey     : 'kRWJLYLSRRj1ioA4DKsRb9Kr',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
